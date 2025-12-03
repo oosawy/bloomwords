@@ -19,7 +19,7 @@ func main() {
 	count, seq := load_dataset()
 	log.Printf("Total words: %d\n", count)
 
-	filter := bloom.NewWithEstimates(uint(count), 0.1)
+	filter := bloom.NewWithEstimates(uint(count), 0.01)
 
 	added := 0
 	for word := range seq {

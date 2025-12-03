@@ -8,22 +8,24 @@ import (
 
 const FilterFile = "filter/bloom_words.bf"
 
-type BloomWords struct {
-	filter bloom.BloomFilter
-}
+var filter bloom.BloomFilter
 
+// BloomWords validates English words using a Bloom filter.
+type BloomWords struct{}
+
+// Init initializes BloomWords and returns a ready-to-use validator.
 func Init() (*BloomWords, error) {
-	var filter bloom.BloomFilter
-
 	r := bytes.NewReader(BloomWordsFilter)
 	_, err := filter.ReadFrom(r)
 	if err != nil {
 		return nil, err
 	}
 
-	return &BloomWords{filter: filter}, nil
+	BloomWordsFilter = nil // free memory
+	return &BloomWords{}, nil
 }
 
+// Test returns true if the word is in the dictionary.
 func (bw *BloomWords) Test(word string) bool {
-	return bw.filter.Test([]byte(word))
+	return filter.Test([]byte(word))
 }
