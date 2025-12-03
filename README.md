@@ -12,15 +12,15 @@ Bloom Words is a Go library that validates English words using Bloom filters—a
 
 - 🚀 **Fast Lookup**: O(1) constant-time word lookup using Bloom filter
 - 💾 **Memory Efficient**: Compressed filter using bitsets, much smaller than storing all words
-- 📖 **Comprehensive Dictionary**: Pre-built filter with 370,000+ English words
-- ⚡ **Streaming Support**: Efficiently handle large datasets with minimal memory usage
+- 📖 **Common English Words**: Pre-built filter with top 10,000 English words
+- 📦 **Lightweight**: Entire filter embedded in binary, only ~12KB
 - 🧪 **Well Tested**: Includes comprehensive test suite
 
 **Quick Stats:**
 
-- **370K+ English words** compressed into just **~500KB** of data
+- **9,999 common English words** compressed into **~12KB**
 - **Sub-microsecond lookups** - test a word in less than 1 microsecond
-- **99% accuracy** - only 1% false positive rate on average
+- **Minimal false positive rate** - optimized for top common words
 - **Zero false negatives** - if a word exists, you'll always find it
 
 ## Installation
@@ -40,10 +40,16 @@ import (
 	"fmt"
 	"log"
 
-	bw "github.com/oosawy/bloomwords"
+	"github.com/oosawy/bloomwords"
 )
 
 func main() {
+	// Initialize the Bloom filter
+	bw, err := bloomwords.Init()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	// Test if a word exists in the dictionary
 	if bw.Test("hello") {
 		fmt.Println("'hello' is a valid word")
@@ -64,21 +70,21 @@ Bloom Words uses Go's `go:embed` directive to embed the pre-built Bloom filter (
 To rebuild the Bloom filter from the word list:
 
 ```bash
-go run ./cmd/build.go
+go run ./cmd/build/build.go
 ```
 
-This reads from `datasets/words_alpha.txt` and generates a new `filter/bloom_words.bf`.
+This reads from `datasets/common_english_words.txt` and generates a new `filter/bloom_words.bf`.
 
 ### Dataset
 
-The English word dataset used in this project is sourced from [dwyl/english-words](https://github.com/dwyl/english-words).
+The English word dataset used in this project is sourced from [Common English words on Kaggle](https://www.kaggle.com/datasets/vaskon/common-english-words).
 
 ## Testing
 
 Run the test suite:
 
 ```bash
-go test ./tests -v
+go test -v
 ```
 
 ## License

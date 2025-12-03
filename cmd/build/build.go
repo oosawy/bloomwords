@@ -11,8 +11,8 @@ import (
 	"github.com/bits-and-blooms/bloom/v3"
 )
 
-const DatasetWordsAlpha = "datasets/words_alpha.txt"
-const DatasetWordsAlphaCount = "datasets/words_alpha_count"
+const DatasetWordsAlpha = "datasets/common_english_words.txt"
+const DatasetWordsAlphaCount = "datasets/common_english_words_count"
 const OutputBloomFilter = "filter/bloom_words.bf"
 
 func main() {
