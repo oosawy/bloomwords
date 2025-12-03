@@ -1,4 +1,4 @@
-module github.com/oosawy/bloom-words
+module github.com/oosawy/bloomwords
 
 go 1.25.1
 

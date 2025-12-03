@@ -2,7 +2,7 @@
 
 A lightweight Go library for efficient English word validation using [Bloom filters](https://en.wikipedia.org/wiki/Bloom_filter). Perfect for spell-checking, word games, and text validation with minimal memory footprint.
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/oosawy/bloom-words.svg)](https://pkg.go.dev/github.com/oosawy/bloom-words)
+[![Go Reference](https://pkg.go.dev/badge/github.com/oosawy/bloomwords.svg)](https://pkg.go.dev/github.com/oosawy/bloomwords)
 
 ## What is Bloom Words?
 
@@ -26,7 +26,7 @@ Bloom Words is a Go library that validates English words using Bloom filters—a
 ## Installation
 
 ```bash
-go get github.com/oosawy/bloom-words
+go get github.com/oosawy/bloomwords
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ import (
 	"fmt"
 	"log"
 
-	bw "github.com/oosawy/bloom-words"
+	bw "github.com/oosawy/bloomwords"
 )
 
 func main() {

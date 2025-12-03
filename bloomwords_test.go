@@ -3,7 +3,7 @@ package bloomwords_test
 import (
 	"testing"
 
-	bloomwords "github.com/oosawy/bloom-words"
+	bloomwords "github.com/oosawy/bloomwords"
 )
 
 func TestBloomWordsWithCommonWords(t *testing.T) {
