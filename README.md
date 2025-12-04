@@ -18,9 +18,9 @@ Bloom Words is a Go library that validates English words using Bloom filters—a
 
 **Quick Stats:**
 
-- **9,999 common English words** compressed into **~12KB**
+- **10,000 common English words** compressed into **~12KB**
 - **Sub-microsecond lookups** - test a word in less than 1 microsecond
-- **Minimal false positive rate** - optimized for top common words
+- **Minimal false positive rate**: **~1%**, optimized for top common words
 - **Zero false negatives** - if a word exists, you'll always find it
 
 ## Installation
